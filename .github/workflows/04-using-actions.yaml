@@ -15,6 +15,9 @@ jobs:
               with:
                 node-version: 20
 
+            - name: Find path
+              run: find . -name react-app
+
             - name: Install dependencies
               working-directory: react-app
               run: npm ci
