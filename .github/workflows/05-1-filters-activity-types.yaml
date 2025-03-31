@@ -1,0 +1,17 @@
+name: 05 - 1 - Event Filters and Activity Types
+
+on:     
+    pull_request:
+        branches:
+            - main  # Restrict to changes targeting the main branch
+        types:
+            - opened
+            - synchronize
+
+jobs: 
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              run: Running whenever a PR is opened or synchronized AND base branch is main
+
