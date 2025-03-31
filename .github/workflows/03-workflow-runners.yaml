@@ -4,10 +4,19 @@ on:
     push:
 
 jobs: 
-    echo-hello:
+    ubuntu-echo:
         runs-on: ubuntu-latest
         steps:
             - name: Show OS
               run: |
                 echo "This job is running on Ubuntu runner"
                 echo $RUNNER_OS 
+
+    windows-echo:
+        runs-on: windows-latest
+        steps:
+            - name: Show OS
+              shell: bash
+              run: |
+                echo "This job is running on Widnows runner"
+                echo $RUNNER_OS                 
