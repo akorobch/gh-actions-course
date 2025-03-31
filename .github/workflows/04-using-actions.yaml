@@ -11,4 +11,4 @@ jobs:
               uses: actions/checkout@v4
             - name: Print folders
               run: |
-                find . -type d
+                find ./.github/workflows/04-using-actions -type d
