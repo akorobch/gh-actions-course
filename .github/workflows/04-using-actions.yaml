@@ -19,5 +19,5 @@ jobs:
               run: pwd && find . -name react-app
 
             - name: Install dependencies
-              working-directory: react-app
+              working-directory: ./.github/workflows/react-app
               run: npm ci
