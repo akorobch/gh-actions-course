@@ -54,4 +54,4 @@ jobs:
         steps: 
             - name: Print undefined variables
               run: |
-                echo "Undefined vars with default:  ${{ vars.UNDEFINED_VAR_WITH_DEFAULT }}"
+                echo "Undefined vars with default:  ${{ env.UNDEFINED_VAR_WITH_DEFAULT }}"
