@@ -8,8 +8,8 @@ jobs:
     echo-data:
         runs-on: ubuntu-latest
         steps:   
-#            - name: Take a nap
-#              run: sleep 20
+            - name: Take a nap
+              run: sleep 20
             - name: Failed step
               run: exit 1
             - name: I will be skippped
