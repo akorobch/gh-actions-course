@@ -30,5 +30,7 @@ jobs:
                 echo "Workflow env var: $WORKFLOW_VAR"
                 echo "Overwritten: $OVERWRITTEN"
             - name: Overwrite job variable
+              env:
+                OVERWRITTEN: "Alex overwrote me..."
               run: |
                 echo "Overwritten or not: $OVERWRITTEN"
