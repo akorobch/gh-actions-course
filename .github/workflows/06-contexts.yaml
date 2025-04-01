@@ -10,9 +10,16 @@ on:
                 default: false
     push:
 
+env:
+    MY_WORKFLOW_VAR: workflow
+    MY_OVERWRITTEN_VAR: workflow
+
 jobs: 
     echo-data:
         runs-on: ubuntu-latest
+        env:
+            MY_WORKFLOW_VAR: job
+            MY_OVERWRITTEN_VAR: job
         steps:
             - name: Display Information
               run: |
@@ -23,6 +30,21 @@ jobs:
                 echo "Workflow: ${{ github.workflow }}"
                 echo "Run ID: ${{ github.run_id }}"
                 echo "Run number: ${{ github.run_number }}"
+
             - name: Retrieve Variable
               run:
                 echo " The repo var is ${{ vars.MY_VAR }}"
+
+            - name: Print env vars
+              env:
+                MY_OVERWRITTEN_VAR: step
+              run: |
+                echo "Workflow env: ${{ env.MY_WORKFLOW_VAR }}"
+                echo "Workflow env: ${{ env.MY_OVERWRITTEN_VAR }}"
+
+            - name: Print more vars
+              run: |
+                echo "Workflow env: ${{ env.MY_WORKFLOW_VAR }}"
+                echo "Workflow env: ${{ env.MY_OVERWRITTEN_VAR }}"
+
+                
