@@ -36,8 +36,22 @@ jobs:
                 echo "Overwritten or not: $OVERWRITTEN"
     echo2:
         runs-on: ubuntu-latest
-        environment: prod
         steps: 
             - name: Print variables
               run: |
                 echo "Repo var:  ${{ vars.REPOSITORY_VAR }}"
+    echo-prod:
+        runs-on: ubuntu-latest
+        environment: prod
+        steps: 
+            - name: Print prod variables
+              run: |
+                echo "Org var:  ${{ vars.OVERWRITTEN_VAR  }}"
+                echo "Repo var:  ${{ vars.REPOSITORY_VAR }}"
+                echo "Env var:  ${{ vars.TARGET_VAR  }}"
+    echo-undefined:
+        runs-on: ubuntu-latest
+        steps: 
+            - name: Print undefined variables
+              run: |
+                echo "Undefined vars with default:  ${{ vars.UNDEFINED_VAR_WITH_DEFAULT }}"
