@@ -1,0 +1,16 @@
+name: 05 - 2 - Event Filters and Activity Types
+
+on:     
+    pull_request:
+        branches:
+            - main  # Restrict to changes targeting the main branch
+        types:
+            - closed
+
+jobs: 
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Close PR
+              run: Running whenever a PR is closed
+
