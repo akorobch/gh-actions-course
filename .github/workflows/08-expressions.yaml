@@ -6,12 +6,12 @@ on:
             debug:
                 type: boolean
                 default: false
-    #push:
+    push:
 
 env:
     WORKFLOW_VAR: "I am a workflow env var"
     OVERWRITTEN: "I will be overwritten"
-
+    UNDEFINED_VAR_WITH_DEFAULT: ${{ vars.UNDEFINED_VAR || 'default value' }}
 jobs: 
     echo-data:
         runs-on: ubuntu-latest
@@ -34,3 +34,10 @@ jobs:
                 OVERWRITTEN: "Alex overwrote me..."
               run: |
                 echo "Overwritten or not: $OVERWRITTEN"
+    echo2:
+        runs-on: ubuntu-latest
+        environment: prod
+        steps: 
+            - name: Print variables
+              run: |
+                echo "Repo var:  ${{ vars.REPOSITORY_VAR }}"
