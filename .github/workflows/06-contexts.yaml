@@ -1,5 +1,7 @@
 name: 06 - Contexts
 
+run-name: My custom workflow run name - ${{ runner.os }}
+
 on:     
     workflow_dispatch:
     push:
@@ -7,7 +9,6 @@ on:
 jobs: 
     echo-data:
         runs-on: ubuntu-latest
-        run-name: My custom workflow run name - ${{ runner.os }}
         steps:
             - name: Display Information
               run: |
