@@ -1,7 +1,7 @@
 name: 05 - 2 - Event Filters and Activity Types
 
 on:     
-    pull_request:
+    workflow_dispatch :
         branches:
             - main  # Restrict to changes targeting the main branch
         types:
