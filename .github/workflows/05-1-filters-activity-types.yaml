@@ -12,6 +12,6 @@ jobs:
     build:
         runs-on: ubuntu-latest
         steps:
-            - name: Checkout code
+            - name: Creating PR
               run: echo "Running whenever a PR is opened or synchronized AND base branch is main"
 
