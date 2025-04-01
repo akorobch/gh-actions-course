@@ -8,29 +8,18 @@ jobs:
     echo-data:
         runs-on: ubuntu-latest
         steps:   
-            - name: Print PR title
-              run: echo ${{ github.event.pull_request.title }}
-
-            - name: Print PR labels
-              run: |
-                cat << EOF 
-                    ${{ github.event.pull_request.labels }}
-                EOF
-
-           # - name: Bug steps
-
-            - name: Take a nap
-              run: sleep 20
+#            - name: Take a nap
+#              run: sleep 20
             - name: Failed step
               run: exit 1
             - name: I will be skippped
               run: echo I will print if previous steps succeed.
             - name: I will execute
-              if: failure()
+              if: ${{ failure() }}
               run: echo I will print if any previous step fails
             - name: I will execute
-              if: ${{ failure() && job.status != 'cancelled' }}
+              if: ${{ !cancelled() }}
               run: echo I will always print, except when the workflow is cancelled.
             - name: I will execute when cancelled
-              if: ${{ job.status == 'cancelled' }}
+              if: ${{ cancelled() }}
               run: echo I will print if cancelled
