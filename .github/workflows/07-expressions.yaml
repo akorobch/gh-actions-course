@@ -1,0 +1,22 @@
+name: 07 - Using expressions
+
+on:     
+    workflow_dispatch:
+        inputs: 
+            debug:
+                type: boolean
+                default: false
+    push:
+
+jobs: 
+    echo-data:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Print start-up data
+              run: |
+                echo "Triggered by: ${{ github.event_name }}"
+                echo "Branch: ${{ github.ref }}"
+                echo "Commit SHA: ${{ github.sha }}"
+                echo "Runner OS: ${{ runner.os }}"
+
+            
