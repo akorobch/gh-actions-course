@@ -12,6 +12,6 @@ jobs:
     build:
         runs-on: ubuntu-latest
         steps:
-            - name: Special PRs only
+            - name: Checkout code
               run: Running whenever a PR is opened or synchronized AND base branch is main
 
