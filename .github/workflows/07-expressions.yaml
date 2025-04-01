@@ -12,9 +12,9 @@ jobs:
     echo-data:
         runs-on: ubuntu-latest
         steps:
-            - name: To debug or not to debug
+            - name: Dummy commit
               run: echo "Debug is set to ${{ inputs.debug }}"
-              
+
             - name: Print start-up data
               if: inputs.debug == true
               run: |
