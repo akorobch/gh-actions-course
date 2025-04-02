@@ -107,13 +107,12 @@ jobs:
             - name: print outputs
               run: |
                 echo "${{ toJson(needs.install-deps) }}"
-                exit 1
 
             - name: Download cached dependencies
               uses: actions/cache@v3
               with: 
                 path: react-app/node_modules
-                key: ${{ needs.install-deps.outputs.cache_key }}
+                key: deps-node-modules-${{ hashFiles('react-app/package-lock.json') }}
 
             - name: Testing
               run: npm run test
