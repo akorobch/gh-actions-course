@@ -104,6 +104,11 @@ jobs:
               with:
                 node-version: ${{ inputs.node-version }}
 
+            - name: print outputs
+              run: |
+                echo ${{ toJson(needs.install-deps) }}
+                exit 1
+
             - name: Download cached dependencies
               uses: actions/cache@v3
               with: 
