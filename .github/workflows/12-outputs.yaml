@@ -24,4 +24,4 @@ jobs:
         needs: build
         steps:   
             - name: Deploy
-              run: echo "Deploying as the status is ${{toJson(needs)}}"
+              run: echo "Deploying as the status is ${{toJson(needs.build)}}"
