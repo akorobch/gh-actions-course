@@ -105,7 +105,7 @@ jobs:
               uses: actions/cache@v3
               with: 
                 path: react-app/node_modules
-                key: needs.install-deps.cache.CACHE_KEY
+                key: ${{ needs.install-deps.cache.CACHE_KEY }}
 
             - name: Testing
               run: npm run test
