@@ -31,7 +31,7 @@ jobs:
               id: mistake
               run: | 
                 echo "output2=value2" >> "$GITHUB_OUTPUT"
-                echo "mistake=true" >> "$GITHUB_OUTPUT"
+                echo "mistake=true" > "$GITHUB_OUTPUT"
                 echo Printing file now:
                 cat "$GITHUB_OUTPUT"
 
