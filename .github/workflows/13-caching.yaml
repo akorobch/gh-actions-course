@@ -106,7 +106,7 @@ jobs:
 
             - name: print outputs
               run: |
-                echo ${{ toJson(needs.install-deps) }}
+                echo "${{ toJson(needs.install-deps) }}"
                 exit 1
 
             - name: Download cached dependencies
