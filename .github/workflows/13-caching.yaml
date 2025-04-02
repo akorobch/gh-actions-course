@@ -39,7 +39,7 @@ jobs:
 
             - name: Check cache variable
               run: |
-                echo ${{ toJson(steps.cache) }}
+                echo ${{ toJson(steps.cache.output.cache-hit) }}
                 exit 1
             
             - name: Install dependencies
