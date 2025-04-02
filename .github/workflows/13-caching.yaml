@@ -53,3 +53,35 @@ jobs:
 
             - name: Deploy to non-Prod
               run: echo "Deploying to nonprod"
+
+    install-deps:
+        runs-on: ubuntu-latest
+        defaults:
+            run: 
+              working-directory: ./react-app
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Setup node
+              uses: actions/setup-node@v4
+              with:
+                node-version: ${{ inputs.node-version }}
+
+            - name: Calculate cache key
+              id: cache-key
+              env:
+                CACHE_KEY: deps-node-modules-${{ hashFiles('react-app/package-lock.json') }}
+              run: echo "CACHE_KEY=$CACHE_KEY"
+              
+            - name: Download cached dependencies
+              id: cache
+              if: inputs.use-cache == true
+              uses: actions/cache@v3
+              with: 
+                path: react-app/node_modules
+                key: deps-node-modules-${{ hashFiles('react-app/package-lock.json') }}
+
+            - name: Install dependencies
+              if: steps.cache.outputs.cache-hit != 'true'
+              run: npm ci
