@@ -24,6 +24,7 @@ jobs:
     deploy:
         runs-on: ubuntu-latest
         needs: build
+        #if: ${{ needs.build.outputs.status == "success" }}
         steps:   
             - name: Deploy
-              run: echo "Deploying as the status is ${{needs.build.outputs.status }}"
+              run: echo "Deploying as the status is ${{toJson(needs.build.outputs.status) }}"
