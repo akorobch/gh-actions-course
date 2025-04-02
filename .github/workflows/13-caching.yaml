@@ -60,7 +60,7 @@ jobs:
             run: 
               working-directory: ./react-app
         outputs:
-            cache_key: ${{ steps.deps.outputs.CACHE_KEY }}
+            cache_key: ${{ steps.install-deps.outputs.CACHE_KEY }}
         steps:
             - name: Checkout code
               uses: actions/checkout@v4
