@@ -37,6 +37,11 @@ jobs:
                 key: deps-node-modules-${{ hashFiles('react-app/package-lock.json') }}
                 restore-keys: deps-node-modules-
 
+            - name: Check cache variable
+              run: |
+                echo ${{ toJson(steps.cache) }}
+                exit 1
+            
             - name: Install dependencies
               if: steps.cache.cache-hit != 'true'
               run: npm ci
