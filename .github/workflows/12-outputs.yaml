@@ -19,10 +19,11 @@ jobs:
         steps:   
             - name: Print GITHUB_OUTPUT path
               run: |
-                echo "Value of github output: $GITHUB_OUTPUT"
+                echo "File where github output is going: $GITHUB_OUTPUT"
             - name: Build
               id: build
               run: | 
+                echo "File where github output is going: $GITHUB_OUTPUT"
                 echo "status=${{inputs.build-status }}" >> "$GITHUB_OUTPUT"
                 echo "output1=value1" >> "$GITHUB_OUTPUT"
                 echo Printing file now:
