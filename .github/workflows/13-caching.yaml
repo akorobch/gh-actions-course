@@ -59,6 +59,8 @@ jobs:
         defaults:
             run: 
               working-directory: ./react-app
+        outputs:
+            cache_key: ${{ steps.cache.outputs.CACHE_KEY }}
         steps:
             - name: Checkout code
               uses: actions/checkout@v4
@@ -69,6 +71,7 @@ jobs:
                 node-version: ${{ inputs.node-version }}
 
             - name: Calculate cache key
+              id: cache
               run: echo "CACHE_KEY=deps-node-modules-${{ hashFiles('react-app/package-lock.json') }}" >> $GITHUB_ENV
               
             - name: Use Cache Key
