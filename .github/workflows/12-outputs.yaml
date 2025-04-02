@@ -12,7 +12,7 @@ jobs:
     build:
         runs-on: ubuntu-latest
         outputs:
-            name: ${{ steps.build.outputs.status }}
+            status: ${{ steps.build.outputs.status }}
         steps:   
             - name: Print GITHUB_OUTPUT path
               run: |
@@ -26,4 +26,4 @@ jobs:
         needs: build
         steps:   
             - name: Deploy
-              run: echo "Deploying as the status is ${{toJson(needs.build)}}"
+              run: echo "Deploying as the status is ${{needs.build.outputs.status )}}"
