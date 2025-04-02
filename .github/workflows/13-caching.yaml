@@ -69,7 +69,7 @@ jobs:
                 node-version: ${{ inputs.node-version }}
 
             - name: Calculate cache key
-              run: echo "CACHE_KEY=deps-node-modules-${{ hashFiles('react-app/package-lock.json') }} >> $GITHUB_ENV
+              run: echo "CACHE_KEY=deps-node-modules-${{ hashFiles('react-app/package-lock.json') }}" >> $GITHUB_ENV
               
             - name: Use Cache Key
               run: echo "Cache Key is $CACHE_KEY"
