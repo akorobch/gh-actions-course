@@ -46,5 +46,6 @@ jobs:
             - name: Print outputs
               run: |
                 echo "Output1: ${{ needs.build.outputs.output1 }}"
+                echo "Json of mistake file: ${{ toJson(needs.mistake) }}"
                 echo "Output2: ${{ needs.mistake.outputs.output2 }}"
                 echo "Mistake: ${{ needs.mistake.outputs.mistake }}"
