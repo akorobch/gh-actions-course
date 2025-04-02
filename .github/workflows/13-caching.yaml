@@ -40,10 +40,9 @@ jobs:
             - name: Check cache variable
               run: |
                 echo ${{ toJson(steps.cache.outputs.cache-hit) }}
-                exit 1
             
             - name: Install dependencies
-              if: steps.cache.cache-hit != 'true'
+              if: steps.cache.outputs.cache-hit != 'true'
               run: npm ci
 
             - name: Run unit tests
