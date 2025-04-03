@@ -10,8 +10,6 @@ inputs:
     description: The working directory of the application
     default: .
   target-env: 
-    type: choice
-    options: [dev, prod]
     required: false
     description: dev or prod. Controlls whether dev dependencies are installed
     default: dev
