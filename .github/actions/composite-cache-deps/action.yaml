@@ -33,7 +33,7 @@ runs:
 
     - name: Print omit flag
       env: 
-        omit: inputs.target-env == 'dev' && '--omit=dev'
+        omit: ${{ inputs.target-env }} == 'dev' && '--omit=dev'
       run: |
         echo "The value of omit flag is {{ env.omit }}"
 
