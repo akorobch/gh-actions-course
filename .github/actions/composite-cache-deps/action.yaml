@@ -18,7 +18,7 @@ runs:
   using: composite
   env:
     NODE_VERSION: ${{ inputs.node-version }}
-    TARGET_ENV: $${{ inputs.target-env }}
+    TARGET_ENV: ${{ inputs.target-env }}
   steps: 
     - name: Print the variables passed
       run: |
