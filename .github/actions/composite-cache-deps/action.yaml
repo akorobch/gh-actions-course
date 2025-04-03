@@ -16,11 +16,11 @@ inputs:
 
 runs:
   using: composite
+  env:
+    NODE_VERSION: ${{ inputs.node-version }}
+    TARGET_ENV: $${{ inputs.target-env }}
   steps: 
     - name: Print the variables passed
-      env:
-        NODE_VERSION: ${{ inputs.node-version }}
-        TARGET_ENV: $${{ toJson(inputs)}}
       run: |
         echo "Node version: $NODE_VERSION, Env: $TARGET_ENV"
       shell: bash
