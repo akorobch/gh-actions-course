@@ -33,13 +33,15 @@ runs:
 
     - name: Print omit flag
       env: 
-        omit: ${{ inputs.target-env == 'dev' && '--omit=dev' || '' }}
+        omit: ${{ 'prod' == 'dev' && '--omit=dev' || '' }}
       run: echo "The value of omit flag is $omit"
       shell: bash
 
     - name: Install dependencies
+      env: 
+        omit: ${{ inputs.target-env == 'dev' && '--omit=dev' || '' }}
       if: steps.cache.outputs.cache-hit != 'true'
       working-directory: ${{ inputs.working-dir }}
-      run: npm ci
+      run: npm ci $omit
       shell: bash
     
