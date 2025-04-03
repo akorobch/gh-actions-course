@@ -40,4 +40,13 @@ jobs:
                 name: app
                 path: react-app/build
 
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Download build files
+              uses: actions/download-artifact@v4
+              with:
+                name: app
+                path: build
+
  
