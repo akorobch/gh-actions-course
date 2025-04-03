@@ -35,7 +35,7 @@ runs:
       env: 
         omit: ${{ inputs.target-env == 'dev' && '--omit=dev' || '' }}
       run: |
-        echo "The value of omit flag is {{ env.omit }}"
+        echo "The value of omit flag is ${{ env.omit }}"
 
     - name: Install dependencies
       if: steps.cache.outputs.cache-hit != 'true'
