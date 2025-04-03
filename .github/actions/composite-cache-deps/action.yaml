@@ -19,6 +19,10 @@ inputs:
 runs:
   using: composite
   steps: 
+    - name: Print the variables passed
+      run: echo "Node version: ${{inputs.node-version}}"
+      shell: bash
+
     - name: Setup NodeJS version ${{ inputs.node-version }}
       uses: actions/setup-node@v4
       with:
