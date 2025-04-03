@@ -20,7 +20,7 @@ runs:
     - name: Print the variables passed
       env:
         NODE_VERSION: ${{ inputs.node-version }}
-        TARGET_ENV: ${{ inputs.target-env }}
+        TARGET_ENV: prod
       run: |
         echo "Node version: $NODE_VERSION, Env: $TARGET_ENV"
       shell: bash
