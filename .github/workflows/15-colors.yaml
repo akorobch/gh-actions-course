@@ -5,7 +5,7 @@ on:
 
 jobs: 
     include-example:
-        name: ${{ matrix.color }}-${{ matrix.shape }}-${{matrix.size}}
+        name: ${{ matrix.color }}-${{ matrix.shape }}-${{matrix.size}}-${{matrix.opacity}}
         runs-on: ubuntu-latest
         strategy:
             fail-fast: false
@@ -14,8 +14,9 @@ jobs:
                 shape: [circle, square]
                 size: [small, large]
                 include:
-                    - color: red
+                    - opacity: 50
+                      color: red
                       shape: triangle
         steps:
             - name: Dummy step
-              run: echo ${{ matrix.color }}-${{ matrix.shape }}-${{matrix.size}}
+              run: echo ${{ matrix.color }}-${{ matrix.shape }}-${{matrix.size}}-${{matrix.opacity}}
