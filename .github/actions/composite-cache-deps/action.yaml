@@ -9,6 +9,12 @@ inputs:
     required: false
     description: The working directory of the application
     default: .
+  target-env: 
+    type: choice
+    options: [dev, prod]
+    required: false
+    description: dev or prod. Controlls whether dev dependencies are installed
+    default: dev
 
 runs:
   using: composite
@@ -24,6 +30,12 @@ runs:
       with: 
         path: ${{ inputs.working-dir }}/node_modules
         key: deps-node-modules-${{ hashFiles('${{ inputs.working-dir }}/package-lock.json') }}
+
+    - name: Print omit flag
+      env: 
+        omit: inputs.target-env == 'dev' && '--omit=dev'
+      run: |
+        echo "The value of omit flag is {{ env.omit }}"
 
     - name: Install dependencies
       if: steps.cache.outputs.cache-hit != 'true'
