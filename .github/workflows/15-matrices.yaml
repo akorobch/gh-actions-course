@@ -23,11 +23,13 @@ jobs:
               uses: actions/setup-node@v4
               with:
                 node-version: ${{ matrix.node }}
-            - name: Perform some tests
-              run: |
-                echo "Running tests on ${{ matrix.os }} and NodeJS ${{ matrix.node }} with ${{ matrix.tag }}"
             - name: Fail if experimental
               if: matrix.tag == 'experimental'
               run: exit 1
+            - name: Perform some tests
+              run: |
+                echo "Running tests on ${{ matrix.os }} and NodeJS ${{ matrix.node }} with ${{ matrix.tag }}"
+                sleep 10
+
 
 
