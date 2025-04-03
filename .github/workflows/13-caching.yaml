@@ -15,6 +15,7 @@ on:
 
 jobs: 
     build:
+        needs: install-deps
         runs-on: ubuntu-latest
         defaults:
             run: 
@@ -30,20 +31,14 @@ jobs:
 
             - name: Download cached dependencies
               id: cache
-              if: inputs.use-cache == true
               uses: actions/cache@v3
               with: 
                 path: react-app/node_modules
                 key: deps-node-modules-${{ hashFiles('react-app/package-lock.json') }}
-                restore-keys: deps-node-modules-
 
             - name: Check cache variable
               run: |
                 echo ${{ toJson(steps.cache.outputs.cache-hit) }}
-            
-            - name: Install dependencies
-              if: steps.cache.outputs.cache-hit != 'true'
-              run: npm ci
 
             - name: Run unit tests
               run: npm run test
