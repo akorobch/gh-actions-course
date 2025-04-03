@@ -18,14 +18,10 @@ jobs:
             - name: Checkout the code
               uses: actions/checkout@v4
 
-            - name: Incorrect path?
-              run: find . -name action.yaml
-
             - name: Setup Node and NPM Dependencies
               uses: ./.github/actions/composite-cache-deps
               with: 
                 node-version: 20.x
-                path: react-app
 
             - name: Test
               run: npm run test        
