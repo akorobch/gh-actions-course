@@ -21,7 +21,7 @@ runs:
   steps: 
     - name: Print the variables passed
       run: |
-        echo "Node version: ${{inputs.node-version}}"
+        echo "Node version: ${{inputs.node-version}}, Env: ${{inputs.target-env}}"
       shell: bash
 
     - name: Setup NodeJS version ${{ inputs.node-version }}
