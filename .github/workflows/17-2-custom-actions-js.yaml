@@ -4,23 +4,16 @@ on:
     workflow_dispatch:
         inputs:
             base-branch:
-                required: false
-                description: The branch used as the base for the dependency update checks
+                type: string
                 default: main
             target-branch:
-                required: false
-                description: The branch from which the PR is created
+                type: string
                 default: update-dependencies
             working-directory:
-                required: true
-                description: The working directory of the project to check for dependency updates
-            debug: 
-                required: false
-                type: choice
-                options: [false, true]
-                description: Whether the output debug messages to the console
+                type: string
+                default: react-app
 
-run-name: 17 - 2 - Custom Actions - JS | env - ${{ inputs.base-branch }} - ${{ inputs.target-branch }} - ${{ inputs.working-directory }} - ${{ inputs.debug }}
+run-name: 17 - 2 - Custom Actions - JS | base - ${{ inputs.base-branch }} target- ${{ inputs.target-branch }} working - ${{ inputs.working-directory }} 
 
 jobs:
     dependency_update:
@@ -34,5 +27,3 @@ jobs:
                 base-branch: ${{inputs.base-branch}}
                 target-branch: ${{inputs.target-branch}}
                 working-directory: ${{inputs.working-directory}}
-                github-token: ${{secrets.GITHUB_TOKEN }}
-                debug: ${{inputs.debug}}

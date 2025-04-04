@@ -29,12 +29,12 @@ async function run() {
     return;
   }
 
-/*  if (!validateDirectoryName({ dirName: workingDir })) {
+  if (!validateDirectoryName({ dirName: workingDir })) {
     core.setFailed(
       'Invalid working directory name. Directory names should include only characters, numbers, hyphens, underscores, and forward slashes.'
     );
     return;
-  }*/
+  }
 
   core.info(`[js-dependency-update] : base branch is ${baseBranch}`);
   core.info(`[js-dependency-update] : target branch is ${targetBranch}`);
