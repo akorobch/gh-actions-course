@@ -14,9 +14,6 @@ on:
             working-directory:
                 required: true
                 description: The working directory of the project to check for dependency updates
-            github-token:
-                required: true
-                description: Authentication token with repository access. Must have write access to contents and pull-requests
             debug: 
                 required: false
                 type: choice
