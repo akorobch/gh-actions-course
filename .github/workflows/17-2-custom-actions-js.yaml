@@ -1,4 +1,4 @@
-name: 17 - 2 - custom-actions-js.yaml
+name: 17 - 2 - Custom Actions - JS
 
 on:
     workflow_dispatch:
