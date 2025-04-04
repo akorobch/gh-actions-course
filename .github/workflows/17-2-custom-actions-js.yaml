@@ -16,6 +16,8 @@ on:
                 description: The working directory of the project to check for dependency updates
             debug: 
                 required: false
+                type: choice
+                options: [false, true]
                 description: Whether the output debug messages to the console
 
 run-name: 17 - 2 - Custom Actions - JS | env - ${{ inputs.base-branch }} - ${{ inputs.target-branch }} - ${{ inputs.working-directory }} - ${{ inputs.debug }}
